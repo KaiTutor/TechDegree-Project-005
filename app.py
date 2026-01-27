@@ -67,6 +67,11 @@ def delete_project(id):
     return redirect(url_for('index'))
 
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html', msg=error), 404
+
+
 @app.context_processor
 def inject_projects():
     # This grabs all projects from the DB

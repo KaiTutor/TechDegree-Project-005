@@ -28,6 +28,10 @@ def project_form():
         return redirect(url_for('index'))
     return render_template('projectform.html')
 
+@app.route('/about-me')
+def about():
+    project = Project.query.all()
+    return render_template('about.html', project=project)
 
 @app.route('/project/<id>')
 def project(id):
